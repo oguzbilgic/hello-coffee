@@ -1,8 +1,17 @@
-import babelPolyfill from 'babel-polyfill'
-import server from './server'
-import UsersController from './controllers/users'
+import express from 'express'
+import graphqlHTTP from 'express-graphql'
+import schema from './schema'
+import User from './models/User'
 
-resources =
-  users: UsersController
+root =
+  viewer: (args, request) =>
+    new User 'Jane Doe', 'mail@example.com'
 
-server resources
+graphqlMiddleware = graphqlHTTP
+  schema: schema
+  rootValue: root
+  graphiql: true
+
+app = express()
+app.use '/graphql', graphqlMiddleware
+app.listen 4000

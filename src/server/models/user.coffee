@@ -1,8 +1,11 @@
-import {Database, Model} from 'mongorito'
+# import {Database, Model} from 'mongorito'
+#
+# db = new Database('localhost/hello-coffee');
+# db.connect();
+#
+# export default class User extends Model
+#
+# db.register(User);
 
-db = new Database('localhost/hello-coffee');
-db.connect();
-
-export default class User extends Model
-
-db.register(User);
+export default class User
+  constructor: (@name, @email) ->

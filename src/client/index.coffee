@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from '../shared/App.coffee'
+import App from './app.coffee'
 
-ReactDOM.render <App />, document.getElementById('root')
+element = document.getElementById 'root'
+
+ReactDOM.render <App />, element

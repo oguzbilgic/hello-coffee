@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class CounterPage extends React.Component
+export default class Counter extends React.Component
   constructor: (props) ->
    super props
    @state = @getInitialState props
@@ -13,13 +13,13 @@ export default class CounterPage extends React.Component
   setHandlerInterval: (handler) =>
     # Clear current handler if It's already running
     if @state.counterId
-      @setState
-        counterId: clearInterval(@state.counterId)
+      counterId = clearInterval(@state.counterId)
 
     # Unless the handler is null register it
     if handler
-      @setState
-        counterId: setInterval handler, 1000
+      counterId = setInterval handler, 1000
+
+    @setState {counterId}
 
   handleStartIncrease: =>
     @setHandlerInterval @handleIncrease
